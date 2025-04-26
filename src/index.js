@@ -3,8 +3,11 @@ import "dotenv/config";
 import authRoutes from "./routes/authRoutes.js";
 import booksRoutes from "./routes/bookRoutes.js";
 import { connectDB } from './lib/db.js';
+import job from './lib/cron.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+job.start();
 
 app.use(express.json());
 
